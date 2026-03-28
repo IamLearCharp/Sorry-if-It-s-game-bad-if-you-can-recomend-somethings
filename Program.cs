@@ -4,104 +4,88 @@ class Program
 {
     static void Main()
     {
-        Hero prince-ru = new Hero("Рыцарь", 100, 15, 10);
-        Hero archer-ru = new Hero("Лучница", 50, 20, 10);
+        Hero princeRu = new Hero("Рыцарь", 100, 15, 10);
+        Hero archerRu = new Hero("Лучница", 50, 20, 10);
+        Enemy goblinRu = new Enemy("Гоблин", 50, 25, 10);
+        Enemy skeletonRu = new Enemy("Скелет", 20, 35, 0);
 
-        Enemy goblin-ru = new Enemy("Гоблин", 50, 25, 10);
-        Enemy skeleton-ru = new Enemy("Скелет", 20, 35, 0);
+        Hero princeEn = new Hero("Prince", 100, 15, 10);
+        Hero archerEn = new Hero("Archer", 50, 20, 10);
+        Enemy goblinEn = new Enemy("Goblin", 50, 25, 10);
+        Enemy skeletonEn = new Enemy("Skeleton", 20, 35, 0);
 
-        Hero prince-en = new Hero("Prince", 100, 15, 10);
-        Hero archer-en = new Hero("Archer", 50, 20, 10);
-
-        Enemy goblin-en = new Enemy("Goblin", 50, 25, 10);
-        Enemy skeleton-en = new Enemy("Skeleton", 20, 35, 0);
-
-        Console.WriteLine("========ДОБРО ПОЖАЛОВАТь / WELCOME========");
-        Console.WriteLine("Выберите язык / Choose Language");
-        string choose-lan = Console.ReadLine();
-
-        if (choose-lan = "Русский")
+        Console.WriteLine("========ДОБРО ПОЖАЛОВАТЬ / WELCOME========");
+        string chooseLan = "";
+        while (chooseLan != "1" && chooseLan != "2")
         {
-            Console.WriteLine("Добро пожаловать в нашу игру");
-            Console.WriteLine($"Выберите героя: {prince-ru.name}, {archer-ru.name} ");
-            string choose-hero = Console.ReadLine();
+            Console.WriteLine("1. Русский");
+            Console.WriteLine("2. English");
+            chooseLan = Console.ReadLine().Trim();
+        }
 
-            if (choose-hero = "Рыцарь")
+        if (chooseLan == "1")
+        {
+            Console.WriteLine("Добро пожаловать в нашу игру!");
+
+            string chooseHero = "";
+            while (chooseHero != "1" && chooseHero != "2")
             {
-                Console.WriteLine($"Вы успешно выбрали Рыцаря. Выберите противника: {goblin-ru.name}, {skeleton-ru.name}");
-                string choose-enemy = Console.ReadLine();
-
-                if (choose-enemy = "Гоблин")
-                {
-                    Console.WriteLine("Вы успешно выбрали гоблина противника");
-                }
-                if ( choose-enemy = "Скелет")
-                {
-                    Console.WriteLine("Вы успешно выбрали скелета противника");
-                }
+                Console.WriteLine($"Выберите героя:\n1. {princeRu.Name}\n2. {archerRu.Name}");
+                chooseHero = Console.ReadLine().Trim();
             }
-            if (choose-hero = "Лучница")
+
+            Hero selectedHero = chooseHero == "1" ? princeRu : archerRu;
+            Console.WriteLine($"Вы выбрали: {selectedHero.Name}!");
+
+            string chooseEnemy = "";
+            while (chooseEnemy != "1" && chooseEnemy != "2")
             {
-                Console.WriteLine($"Вы успешно выбрали Лучницу. Выберите противника: {goblin-ru.name}, {skeleton-ru.name}");
-                string choose-enemy = Console.ReadLine();
-
-                if (choose-enemy = "Гоблин")
-                {
-                    Console.WriteLine("Вы успешно выбрали гоблина противника");
-                }
-                if ( choose-enemy = "Скелет")
-                {
-                    Console.WriteLine("Вы успешно выбрали скелета противника");
-                }
+                Console.WriteLine($"Выберите противника:\n1. {goblinRu.Name}\n2. {skeletonRu.Name}");
+                chooseEnemy = Console.ReadLine().Trim();
             }
-            Console.WriteLine("Нажмите Enter что бы выйти...");
+
+            Enemy selectedEnemy = chooseEnemy == "1" ? goblinRu : skeletonRu;
+            Console.WriteLine($"Вы выбрали противника: {selectedEnemy.Name}!");
+
+            Console.WriteLine("Нажмите Enter чтобы выйти...");
             Console.ReadLine();
         }
-        if (choose-lan = "English")
+        else if (chooseLan == "2")
         {
-            Console.WriteLine("Welcome to our game");
-            Console.WriteLine($"Choose a hero: {prince-en.name}, {archer-en.name} ");
-            string choose-hero = Console.ReadLine();
+            Console.WriteLine("Welcome to our game!");
 
-            if (choose-hero = "Prince")
+            string chooseHero = "";
+            while (chooseHero != "1" && chooseHero != "2")
             {
-                Console.WriteLine($"You choose the Prince. Choose enemy: {goblin-en.name}, {skeleton-en.name}");
-                string choose-enemy = Console.ReadLine();
-
-                if (choose-enemy = "Goblin")
-                {
-                    Console.WriteLine("Toy choose goblin enemy");
-                }
-                if ( choose-enemy = "Skeleton")
-                {
-                    Console.WriteLine("You choose skeleton enemy");
-                }
+                Console.WriteLine($"Choose a hero:\n1. {princeEn.Name}\n2. {archerEn.Name}");
+                chooseHero = Console.ReadLine().Trim();
             }
-            if (choose-hero = "Archer")
-            {
-                Console.WriteLine($"You choose Archer. Choose enemy: {goblin.name}, {skeleton.name}");
-                string choose-enemy = Console.ReadLine();
 
-                if (choose-enemy = "Goblin")
-                {
-                    Console.WriteLine("You choose goblin enemy");
-                }
-                if ( choose-enemy = "скелет")
-                {
-                    Console.WriteLine("You choose skeleton enemy");
-                }
-            } 
+            Hero selectedHero = chooseHero == "1" ? princeEn : archerEn;
+            Console.WriteLine($"You chose: {selectedHero.Name}!");
+
+            string chooseEnemy = "";
+            while (chooseEnemy != "1" && chooseEnemy != "2")
+            {
+                Console.WriteLine($"Choose enemy:\n1. {goblinEn.Name}\n2. {skeletonEn.Name}");
+                chooseEnemy = Console.ReadLine().Trim();
+            }
+
+            Enemy selectedEnemy = chooseEnemy == "1" ? goblinEn : skeletonEn;
+            Console.WriteLine($"You chose enemy: {selectedEnemy.Name}!");
+
             Console.WriteLine("Tap Enter to exit...");
-            Console.ReadLine();  
+            Console.ReadLine();
         }
     }
 }
+
 class Hero
 {
     public string Name;
     public int HP;
     public int Damage;
-    public int Armor
+    public int Armor;
 
     public Hero(string name, int hp, int damage, int armor)
     {
@@ -111,6 +95,7 @@ class Hero
         Armor = armor;
     }
 }
+
 class Enemy
 {
     public string Name;
@@ -124,6 +109,5 @@ class Enemy
         HP = hp;
         Damage = damage;
         Armor = armor;
-    }   
+    }
 }
-
