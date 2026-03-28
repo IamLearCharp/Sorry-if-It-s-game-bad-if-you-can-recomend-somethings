@@ -1,0 +1,2 @@
+C:\Users\Dexp\Desktop\MyGame\bin\Release\net10.0\win-x64\publish\MyGame.pdb
+C:\Users\Dexp\Desktop\MyGame\bin\Release\net10.0\win-x64\publish\MyGame.exe
